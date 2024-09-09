@@ -8,7 +8,7 @@ from pathlib import Path
 from threading import Thread
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage,StringVar,Label
 from time import sleep
 import pandas as pd
 import os
@@ -66,7 +66,7 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 def get_entry_value(event):
     global delay
-    delay = float(entry_1.get())
+    delay = float(entry_1.get())*60
     print("Entry value:", delay)
 def open_excel():
     os.system('game.csv')
