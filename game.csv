@@ -1,7 +1,25 @@
 game_name,price,time
 robo_war,300,17 : 24 : 23
+robo_war,300,23 : 21 : 49
+robo_war,300,23 : 29 : 6
 VR,100,16 : 44 : 34
+VR,100,23 : 21 : 51
+VR,100,23 : 29 : 9
 Hovercraft,200,16 : 44 : 36
 little_war,200,16 : 44 : 33
+little_war,200,23 : 21 : 50
+little_war,200,23 : 29 : 7
 little_road,150,16 : 44 : 37
-total_price,2900,end
+little_road,150,23 : 15 : 25
+little_road,150,23 : 17 : 6
+little_road,150,23 : 18 : 19
+little_road,150,23 : 24 : 23
+little_road,150,23 : 24 : 36
+little_road,150,23 : 25 : 16
+little_road,150,23 : 5 : 58
+little_road,150,23 : 6 : 45
+little_road,150,23 : 6 : 54
+little_road,150,23 : 7 : 11
+little_road,150,23 : 7 : 13
+little_road,150,23 : 8 : 32
+total_price,28800,end

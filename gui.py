@@ -36,7 +36,32 @@ else:
     game_data=pd.read_csv('game.csv')
     print(game_data)
 
+def x(game):
+    import tkinter as tk
+    from tkinter import ttk
+    import time
+    def start_progress():
+        global delay
+        progress.start()
 
+        # Simulate a task that takes time to complete
+        for i in range(101):
+        # Simulate some work
+            time.sleep(delay/100)  
+            progress['value'] = i
+            # Update the GUI
+            root.update()  
+        progress.stop()
+    root = tk.Tk()
+    root.title(game)
+    # Create a progressbar widget
+    progress = ttk.Progressbar(root, length=300,mode="determinate")
+    progress.pack()
+
+    # Button to start progress
+    start_progress()
+
+    root.mainloop()
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 def get_entry_value(event):
@@ -46,6 +71,8 @@ def get_entry_value(event):
 def open_excel():
     os.system('game.csv')
 def one():
+    t=Thread(target=x,args=['one'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "one"
@@ -59,6 +86,8 @@ def start_one():
     x=pd.DataFrame({'game_name':'little_road','price':[150],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x],)
 def three():
+    t=Thread(target=x,args=['Three'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "one"
@@ -72,6 +101,8 @@ def start_three():
     x=pd.DataFrame({'game_name':'little_road','price':[150],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x],)
 def two():
+    t=Thread(target=x,args=['Two'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Board game"
@@ -85,6 +116,8 @@ def start_two():
     x=pd.DataFrame({'game_name':'little_road','price':[150],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x],)
 def Board_game():
+    t=Thread(target=x,args=['Board_game'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Board game"
@@ -98,6 +131,8 @@ def start_Board_game():
     x=pd.DataFrame({'game_name':'little_road','price':[150],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x],)
 def little_road():
+    t=Thread(target=x,args=['Little_road'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Little road"
@@ -111,6 +146,8 @@ def start_little_road():
     x=pd.DataFrame({'game_name':'little_road','price':[150],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x],)
 def little_war():
+    t=Thread(target=x,args=['Little_war'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Little war"
@@ -125,6 +162,8 @@ def start_little_war():
     x=pd.DataFrame({'game_name':'little_war','price':[200],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def Hovercraft():
+    t=Thread(target=x,args=['Hover_craft'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Hovercraft"
@@ -139,6 +178,8 @@ def start_Hovercraft():
     x=pd.DataFrame({'game_name':'Hovercraft','price':[200],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def RC():
+    t=Thread(target=x,args=['RC_climber'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "RC climber"
@@ -153,6 +194,8 @@ def start_RC():
     x=pd.DataFrame({'game_name':'RC_climber','price':[200],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def VR():
+    t=Thread(target=x,args=['VR'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "VR"
@@ -167,6 +210,8 @@ def start_VR():
     x=pd.DataFrame({'game_name':'VR','price':[100],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def human_soccer():
+    t=Thread(target=x,args=['Human_soccer'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Human soccer"
@@ -181,6 +226,8 @@ def start_human_soccer():
     x=pd.DataFrame({'game_name':'human_soccer','price':[300],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def machine_soccer():
+    t=Thread(target=x,args=['Machine_soccer'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Machine soccer"
@@ -195,6 +242,8 @@ def start_machine_soccer():
     x=pd.DataFrame({'game_name':'machine_soccer','price':[200],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 def robo_war():
+    t=Thread(target=x,args=['Robo_war'])
+    t.start()
     sleep(delay)
     print('ok')
     notification.message = "Robo war"
