@@ -1,5 +1,7 @@
 game_name,price,time
-robo_war,300,21 : 4 : 16
-robo_war,300,21 : 7 : 33
-little_war,200,21 : 4 : 7
-total_price,1300,end
+robo_war,300,17 : 24 : 23
+VR,100,16 : 44 : 34
+Hovercraft,200,16 : 44 : 36
+little_war,200,16 : 44 : 33
+little_road,150,16 : 44 : 37
+total_price,2900,end
