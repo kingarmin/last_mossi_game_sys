@@ -1,6 +1,6 @@
 game_name,price,time
-robo_war,300,0 : 45 : 11
-machine_soccer,200,0 : 45 : 12
-little_war,200,0 : 45 : 13
-little_road,150,0 : 45 : 14
-total_price,850,end
+robo_war,300,16 : 58 : 48
+robo_war,300,16 : 58 : 53
+total_price,800,end
+robo_war_count,2,
+machine_soccer_count,1,

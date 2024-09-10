@@ -505,6 +505,7 @@ entry_1.bind("<Return>",get_entry_value)
 window.resizable(False, False)
 window.mainloop()
 game_list=['robo_war','machine_soccer','human_soccer','VR','Hovercraft','little_war','little_road']
+game_counter_list=['robo_war_count','machine_soccer_count','human_soccer_count','VR_count','Hovercraft_count','little_war_count','little_road_count']
 game_data['game_name']=game_data['game_name'].replace(to_replace=game_list,value=range(len(game_list)))
 game_data.sort_values(['game_name','time'],ascending=True,inplace=True)
 game_data['game_name']=game_data['game_name'].replace(value=game_list,to_replace=range(len(game_list)))
@@ -512,5 +513,12 @@ if (isfirst_time):
     game_data.index=range(len(game_data))
 game_data.drop(game_data[game_data['game_name']=='start'].index,inplace=True)
 game_data=pd.concat([game_data.drop(game_data[game_data['game_name']=='total_price'].index),pd.DataFrame({'game_name':['total_price'],'price':[game_data['price'].sum()],'time':['end']})])
-
+game_data=game_data.drop(game_data[game_data['game_name'].isin(game_counter_list)].index)
+alpha=game_data['game_name'].value_counts()
+xx=alpha.index.tolist()
+for i in range(len(xx)):
+    xx[i]=xx[i].replace(xx[i],xx[i]+'_count')
+beta=pd.DataFrame({'game_name':xx , 'price':alpha.to_list() })
+game_data=pd.concat([game_data,beta])
+game_data.drop(game_data[game_data['game_name']=='total_price_count'].index,inplace=True)
 game_data.to_csv('game.csv',index=False)
