@@ -26,8 +26,6 @@ notification = Notify()
 notification.title = "Timeout"
 notification.icon='images.png'
 delay=0
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"assets\frame0")
 game_data=pd.DataFrame({'game_name':['start'],'price':[0],'time':['start']})
 if not(os.path.isfile('game.csv')):
     pd.DataFrame({'game_name':['start'],'price':[0],'time':['start']}).to_csv('game.csv')
@@ -61,9 +59,28 @@ def x(game):
     # Button to start progress
     start_progress()
 
-    root.mainloop()
+OUTPUT_PATH = Path(__file__).parent
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\10.armin\Desktop\new_gui\build\assets\frame0")
+
+
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
+
+def set_delay_five():
+    global delay
+    delay=300
+def set_delay_ten():
+    global delay
+    delay=600
+def set_delay_15():
+    global delay
+    delay=900
+def set_delay_20():
+    global delay
+    delay=1200
+
+
+
 def get_entry_value(event):
     global delay
     delay = float(entry_1.get())*60
@@ -258,11 +275,13 @@ def start_robo_war():
     x=pd.DataFrame({'game_name':'robo_war','price':[300],'time':[str(dt.datetime.now().hour)+' : '+str(dt.datetime.now().minute)+' : '+(str(dt.datetime.now().second))]})
     game_data=pd.concat([game_data,x])
 
+
 window = Tk()
+
 window.geometry("1440x850")
 window.configure(bg = "#FFFFFF")
 
-
+window.title('Mositto')
 canvas = Canvas(
     window,
     bg = "#FFFFFF",
@@ -500,6 +519,70 @@ entry_1.place(
     y=490.0,
     width=1440.0,
     height=33.0
+)
+
+button_image_14 = PhotoImage(
+    file=relative_to_assets("button_14.png"))
+button_14 = Button(
+    image=button_image_14,
+    borderwidth=0,
+    highlightthickness=0,
+    command=set_delay_ten,
+    relief="flat"
+)
+button_14.place(
+    x=443.0,
+    y=530.0,
+    width=200.0,
+    height=95.68106079101562
+)
+
+button_image_15 = PhotoImage(
+    file=relative_to_assets("button_15.png"))
+button_15 = Button(
+    image=button_image_15,
+    borderwidth=0,
+    highlightthickness=0,
+    command=set_delay_15,
+    relief="flat"
+)
+button_15.place(
+    x=728.0,
+    y=530.0,
+    width=200.0,
+    height=98.02631378173828
+)
+
+button_image_16 = PhotoImage(
+    file=relative_to_assets("button_16.png"))
+button_16 = Button(
+    image=button_image_16,
+    borderwidth=0,
+    highlightthickness=0,
+    command=set_delay_20,
+    relief="flat"
+)
+button_16.place(
+    x=1013.0,
+    y=535.0,
+    width=200.0,
+    height=93.37748718261719
+)
+
+button_image_17 = PhotoImage(
+    file=relative_to_assets("button_17.png"))
+button_17 = Button(
+    image=button_image_17,
+    borderwidth=0,
+    highlightthickness=0,
+    command=set_delay_five,
+    relief="flat"
+)
+button_17.place(
+    x=155.0,
+    y=530.0,
+    width=200.0,
+    height=88.90469360351562
 )
 entry_1.bind("<Return>",get_entry_value)
 window.resizable(False, False)
