@@ -41,11 +41,11 @@ def x(game):
     def start_progress():
         global delay
         progress.start()
-
+        timer_time=delay
         # Simulate a task that takes time to complete
         for i in range(101):
         # Simulate some work
-            time.sleep(delay/100)  
+            time.sleep(timer_time/100)  
             progress['value'] = i
             # Update the GUI
             root.update()  
