@@ -15,6 +15,8 @@ import os
 import datetime as dt
 from notifypy import Notify
 from pygame import mixer 
+import matplotlib.pyplot as plt
+import numpy as np
 mixer.init() 
 isfirst_time=False
 # Loading the song 
@@ -33,6 +35,12 @@ if not(os.path.isfile('game.csv')):
 else:
     game_data=pd.read_csv('game.csv')
     print(game_data)
+def plot():
+    Names=np.array(list(game_data[game_data['game_name'].str.contains('count',regex=True)].groupby('game_name').groups.keys()))
+    price=game_data[game_data['game_name'].str.contains('count',regex=True)].groupby('game_name')['price'].sum()
+    plt.bar(Names,price,color="red")
+    plt.show()
+    
 
 def x(game):
     import tkinter as tk
@@ -585,6 +593,11 @@ button_17.place(
     height=88.90469360351562
 )
 entry_1.bind("<Return>",get_entry_value)
+button_18=Button(    borderwidth=0,
+    highlightthickness=0,
+    command=plot,
+    relief="flat",text="mat_plot")
+button_18.place(x=660,y=700)
 window.resizable(False, False)
 window.mainloop()
 game_list=['robo_war','machine_soccer','human_soccer','VR','Hovercraft','little_war','little_road']
@@ -596,7 +609,7 @@ if (isfirst_time):
     game_data.index=range(len(game_data))
 game_data.drop(game_data[game_data['game_name']=='start'].index,inplace=True)
 game_data=pd.concat([game_data.drop(game_data[game_data['game_name']=='total_price'].index),pd.DataFrame({'game_name':['total_price'],'price':[game_data['price'].sum()],'time':['end']})])
-game_data=game_data.drop(game_data[game_data['game_name'].isin(game_counter_list)].index)
+game_data=game_data.drop(index=game_data[game_data['game_name'].str.contains('count',regex=True)].index)
 alpha=game_data['game_name'].value_counts()
 xx=alpha.index.tolist()
 for i in range(len(xx)):
